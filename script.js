@@ -23,27 +23,6 @@ document.querySelectorAll('header nav a').forEach(anchor => {
   });
 });
 
- const sections = document.querySelectorAll('section');
- const navLinks = document.querySelectorAll('header nav a');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-  
-      sections.forEach(section => {
-       sectionTop = section.offsetTop - 100;
-        if (scrollY >= sectionTop) {
-            current = section.getAttribute('id');
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').includes(current)) {
-      link.classList.add('active');
-    }
-  });
-});
-  
 
   const bannerSwiper = new Swiper("#home .swiper", {
     loop: true,
@@ -159,6 +138,7 @@ document.querySelectorAll('header nav a').forEach(anchor => {
     });
   });
 });
+
 
 
 
