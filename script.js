@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     easing: "ease-in-out",
   });
 
-  // === Swiper Banner ===
+
   const bannerSwiper = new Swiper("#home .swiper", {
     loop: true,
     autoplay: {
@@ -19,18 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // === Dark / Light Mode Toggle ===
+  
   const toggle = document.getElementById("theme-toggle");
   const body = document.body;
   const bannerSlides = document.querySelectorAll(".banner-slide");
 
-  // ✅ Image paths (update to your actual file names)
+  // Image paths (update to your actual file names)
   const bannerImages = {
     light: ["banner1.png", "banner1.png"],
     dark: ["banner1.png", "banner1.png"],
   };
 
-  // ✅ Function to update banner backgrounds
+  // Function to update banner backgrounds
   function updateBannerImages(theme) {
     bannerSlides.forEach((slide, index) => {
       const img =
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ✅ Load saved theme
+  //  Load saved theme
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     body.classList.add("dark-mode");
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // === Product Swiper ===
+
   const productSwiper = new Swiper(".product-swiper", {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // === Lightbox ===
+  
   lightbox.option({
     resizeDuration: 200,
     wrapAround: true,
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     imageFadeDuration: 300,
   });
 
-  // === Contact Form ===
+
   const enquiryForm = document.getElementById("enquiryForm");
   if (enquiryForm) {
     enquiryForm.addEventListener("submit", function (e) {
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === Smooth Scroll ===
+
   document.querySelectorAll("header nav a").forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -121,4 +121,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
 
