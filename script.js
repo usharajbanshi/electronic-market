@@ -5,25 +5,29 @@ document.addEventListener("DOMContentLoaded", () => {
     once: true,
     easing: "ease-in-out",
   });
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
 
-// Hamburger toggle
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
-});
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('header nav a');
 
-// Smooth scroll for header links
-document.querySelectorAll('header nav a').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    navMenu.classList.remove('show'); // Close menu on mobile
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  window.addEventListener('scroll', () => {
+    let current = '';
+  
+      sections.forEach(section => {
+       sectionTop = section.offsetTop - 100;
+        if (scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+    }
+  });
+A
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').includes(current)) {
+      link.classList.add('active');
+    }
   });
 });
 
-
+  // === Swiper Banner ===
   const bannerSwiper = new Swiper("#home .swiper", {
     loop: true,
     autoplay: {
@@ -36,18 +40,18 @@ document.querySelectorAll('header nav a').forEach(anchor => {
     },
   });
 
-  
+  // === Dark / Light Mode Toggle ===
   const toggle = document.getElementById("theme-toggle");
   const body = document.body;
   const bannerSlides = document.querySelectorAll(".banner-slide");
 
-  // Image paths (update to your actual file names)
+  // ✅ Image paths (update to your actual file names)
   const bannerImages = {
-    light: ["banner1.png", "banner1.png"],
-    dark: ["banner1.png", "banner1.png"],
+    light: ["bannerimage.png", "bannerimage.png"],
+    dark: ["bannerimage.png", "bannerimage.png"],
   };
 
-  // Function to update banner backgrounds
+  // ✅ Function to update banner backgrounds
   function updateBannerImages(theme) {
     bannerSlides.forEach((slide, index) => {
       const img =
@@ -68,7 +72,7 @@ document.querySelectorAll('header nav a').forEach(anchor => {
     });
   }
 
-  //  Load saved theme
+  // ✅ Load saved theme
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     body.classList.add("dark-mode");
@@ -91,7 +95,7 @@ document.querySelectorAll('header nav a').forEach(anchor => {
     }
   });
 
-
+  // === Product Swiper ===
   const productSwiper = new Swiper(".product-swiper", {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -108,7 +112,7 @@ document.querySelectorAll('header nav a').forEach(anchor => {
     },
   });
 
-  
+  // === Lightbox ===
   lightbox.option({
     resizeDuration: 200,
     wrapAround: true,
@@ -116,7 +120,7 @@ document.querySelectorAll('header nav a').forEach(anchor => {
     imageFadeDuration: 300,
   });
 
-
+  // === Contact Form ===
   const enquiryForm = document.getElementById("enquiryForm");
   if (enquiryForm) {
     enquiryForm.addEventListener("submit", function (e) {
@@ -126,7 +130,7 @@ document.querySelectorAll('header nav a').forEach(anchor => {
     });
   }
 
-
+  // === Smooth Scroll ===
   document.querySelectorAll("header nav a").forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -138,6 +142,7 @@ document.querySelectorAll('header nav a').forEach(anchor => {
     });
   });
 });
+
 
 
 
