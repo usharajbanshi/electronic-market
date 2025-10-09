@@ -113,9 +113,10 @@ nav a.active {
 
 @media (max-width: 768px) {
   nav {
-    display: none;
+    max-height: 0;
     flex-direction: column;
     width: 100%;
+    overflow: hidden;
     background: #4423da;
     border-radius: 8px;
     margin-top: 10px;
@@ -125,6 +126,8 @@ nav a.active {
 
   nav.show {
     display: flex;
+    max-height:500px;
+    
   }
 
   nav a {
@@ -849,6 +852,7 @@ footer {
 @media(max-width:768px) {
   .features { flex-wrap: nowrap; }
 }
+
 
 
 
