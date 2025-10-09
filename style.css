@@ -27,12 +27,15 @@ header {
 header .logo {
   font-size: 1.5em;
   font-weight: bold;
+  flex-shrink:0;
 }
 
 header nav {
   display: flex;
   gap: 15px;
   flex-wrap: nowrap; /* Keep nav links in one line */
+  justify-content: center;
+  flex: 1 1 auto;
 }
 
 header nav a {
@@ -72,18 +75,20 @@ header nav a.active {
 /* Responsive adjustments without stacking */
 @media (max-width: 768px) {
   header {
-    padding: 10px 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
   header nav {
-    gap: 8px; /* reduce spacing for smaller screens */
+    width: 100%;
+    justify-content: space-around;
   }
   header nav a {
     padding: 6px 10px;
-    font-size: 0.9em;
+    font-size: 0.95em;
   }
   .theme-toggle {
-    font-size: 1.2rem;
-    margin-left: 10px;
+    align-self: flex-end;
   }
 }
 
@@ -786,6 +791,7 @@ footer {
 @media(max-width:768px) {
   .features { flex-wrap: nowrap; }
 }
+
 
 
 
