@@ -5,6 +5,23 @@ document.addEventListener("DOMContentLoaded", () => {
     once: true,
     easing: "ease-in-out",
   });
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+// Hamburger toggle
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+// Smooth scroll for header links
+document.querySelectorAll('header nav a').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    navMenu.classList.remove('show'); // Close menu on mobile
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
 
  const sections = document.querySelectorAll('section');
  const navLinks = document.querySelectorAll('header nav a');
@@ -142,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
 
 
 
