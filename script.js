@@ -47,8 +47,8 @@ A
 
   // ✅ Image paths (update to your actual file names)
   const bannerImages = {
-    light: ["bannerimage.png", "bannerimage.png"],
-    dark: ["bannerimage.png", "bannerimage.png"],
+    light: ["banner1.png", "banner1.png"],
+    dark: ["banner1.png", "banner1.png"],
   };
 
   // ✅ Function to update banner backgrounds
@@ -142,6 +142,7 @@ A
     });
   });
 });
+
 
 
 
