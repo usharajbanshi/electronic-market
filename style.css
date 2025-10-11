@@ -60,20 +60,21 @@ body.dark-mode {
 ========================== */
 
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--header-bg, #1a1a4a);
-  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
+  padding: 15px 25px;
+  background: rgba(20, 20, 50, 0.8); /* translucent background */
+  color: #fff;
+  position: sticky;
+  top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  flex-wrap: nowrap;
-  overflow: hidden;
+  backdrop-filter: blur(10px); /* smooth blur effect */
+  -webkit-backdrop-filter: blur(10px);
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 header::-webkit-scrollbar {
   display: none;
@@ -87,11 +88,11 @@ header.scrolled {
 
 /* Logo */
 header .logo {
-  font-size: 1.5em;
+  font-size: 1.6em;
   font-weight: 700;
+  letter-spacing: 1px;
   color: var(--accent);
-   gap:10px;
-  flex-wrap;
+  flex-shrink: 0;
 }
 
 /* Navigation links */
@@ -103,17 +104,22 @@ header nav {
 }
 
 header nav a {
+  padding: 8px 15px;
   color: #fff;
   text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: background 0.3s ease;
-  font-size: 0.95rem;
-  white-space: nowrap;   
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
-header nav a:hover{
-   background: rgba(255, 255,255, 0.2);
+header nav a:hover,
+header nav a.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
 
 /* Theme Toggle */
 .theme-toggle {
@@ -136,7 +142,7 @@ header nav a:hover{
   header {
     padding: 10px 12px;
     justify-content: flex-start;
-    flex-wrap:wrap;
+    gap: 10px;
   }
 
   header .logo {
@@ -145,19 +151,11 @@ header nav a:hover{
 
   header nav {
     gap: 8px;
-    display:flex;
-     flex-wrap:wrap;
-     justify-content:center;
-     width:100%;
-     margin-top:8pz;
   }
 
   header nav a {
-    flex: 1 1 auto;
-    text-align: center;
-    padding: 8px;
-    font-size: 0.9rem;
-    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.85em;
+    padding: 6px 10px;
   }
 
   .theme-toggle {
@@ -174,7 +172,6 @@ header nav a:hover{
   height: 90vh;
   position: relative;
   overflow: hidden;
-   margin-top:70px;
 }
 
 .banner-slide {
@@ -615,6 +612,8 @@ footer canvas#footer-particles {
     justify-content: center;
   }
 }
+
+
 
 
 
